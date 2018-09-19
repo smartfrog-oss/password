@@ -1,4 +1,4 @@
-const password = require('..')
+const password = require('../lib/password')
 
 const examples = [
   ['', 0, 'WEAK', false],
