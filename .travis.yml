@@ -13,10 +13,10 @@ install:
   - yarn
 
 script:
-  - yarn test
+  - yarn test --coverage
 
 after_success:
-  - yarn test --coverage --coverageReporters=text-lcov | npx coveralls
+  - codecov
 
 cache:
   yarn: true

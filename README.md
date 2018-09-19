@@ -2,8 +2,8 @@
 
 password validaty checker
 
-[![npm version](https://badge.fury.io/js/@smartfrog/password.svg)](https://badge.fury.io/js/@smartfrog/password)
-[![Coverage Status](https://coveralls.io/repos/github/smartfrog-oss/password/badge.svg?branch=master)](https://coveralls.io/github/smartfrog-oss/password?branch=master)
+[![npm version](https://badge.fury.io/js/%40smartfrog%2Fpassword.svg)](https://badge.fury.io/js/%40smartfrog%2Fpassword)
+[![codecov](https://codecov.io/gh/smartfrog-oss/password/branch/master/graph/badge.svg)](https://codecov.io/gh/smartfrog-oss/password)
 [![Build Status](https://api.travis-ci.org/smartfrog-oss/password.svg?branch=master)](https://travis-ci.org/smartfrog-oss/password#)
 
 ## Rules
