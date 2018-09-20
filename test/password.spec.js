@@ -1,7 +1,7 @@
 const password = require('../lib/password')
 
 const examples = [
-  ['', 0, 'WEAK', false],
+  [undefined, 0, 'WEAK', false],
   ['!@$&$&', 0, 'WEAK', false],
   ['abcdefg', 4, 'WEAK', false],
   ['abcdef!', 4, 'WEAK', false],
@@ -51,18 +51,18 @@ describe('password isValid', () => {
 })
 
 describe('password getErrors', () => {
-  const struct = {
-    digit: expect.any(Boolean),
-    length: expect.any(Boolean),
-    lowercase: expect.any(Boolean),
-    uppercase: expect.any(Boolean),
-    letters: expect.any(Boolean),
-  }
-
-  for (const [pwd] of examples) {
-    test(`right ${pwd} validation`, () => {
-      expect(password.getErrors(pwd)).toMatchObject(struct)
-      expect(password.getErrors(pwd)).not.toContain({ extra: expect.any(Boolean) })
+    test(`getErrors of WEAK password`, () => {
+      expect(password.getErrors('pwd')).toEqual({"digit": true, "length": true, "letters": true, "uppercase": true})
+      expect(password.getErrors('pwd1')).toEqual({"length": true, "letters": true, "uppercase": true})
+      expect(password.getErrors('pwd1U')).toEqual({"length": true})
+      expect(password.getErrors('aaaaaaaaaaaa1')).toEqual({"letters": true, "uppercase": true})
     })
-  }
+
+    test(`getErrors of MEDIUM password`, () => {
+      expect(password.getErrors('Abcdefg1')).toEqual({})
+    })
+
+    test(`getErrors of STRONG password`, () => {
+      expect(password.getErrors('Abcdefgh1$')).toEqual({})
+    })
 })

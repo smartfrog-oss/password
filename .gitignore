@@ -6,6 +6,8 @@ coverage
 *.tgz
 .env
 
+dist/
+
 # Logs
 logs
 *.log

@@ -3,17 +3,20 @@
   "version": "0.1.0",
   "description": "password validity checker",
   "scripts": {
-    "test": "npx jest"
+    "test": "npx jest",
+    "build": "npx bili lib/password --filename password.js"
   },
-  "main": "lib/password.js",
+  "main": "dist/password.js",
   "author": "mouafa",
   "license": "MIT",
   "private": false,
   "devDependencies": {
+    "bili": "3.1.2",
     "codecov": "3.1.0",
     "jest": "23.6.0"
   },
   "files": [
-    "lib/"
+    "lib/",
+    "dist/"
   ]
 }
