@@ -1,6 +1,6 @@
 # @smartfrog/password
 
-password validaty checker
+password validity checker
 
 [![npm version](https://badge.fury.io/js/%40smartfrog%2Fpassword.svg)](https://badge.fury.io/js/%40smartfrog%2Fpassword)
 [![codecov](https://codecov.io/gh/smartfrog-oss/password/branch/master/graph/badge.svg)](https://codecov.io/gh/smartfrog-oss/password)

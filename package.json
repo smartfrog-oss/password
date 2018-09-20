@@ -1,7 +1,7 @@
 {
   "name": "@smartfrog/password",
   "version": "0.1.0",
-  "description": "password validaty checker",
+  "description": "password validity checker",
   "scripts": {
     "test": "npx jest"
   },
