@@ -1,82 +1,43 @@
 'use strict';
 
-function _slicedToArray(arr, i) {
-  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest();
-}
+Object.defineProperty(exports, '__esModule', { value: true });
 
-function _arrayWithHoles(arr) {
-  if (Array.isArray(arr)) return arr;
-}
-
-function _iterableToArrayLimit(arr, i) {
-  var _arr = [];
-  var _n = true;
-  var _d = false;
-  var _e = undefined;
-
-  try {
-    for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
-      _arr.push(_s.value);
-
-      if (i && _arr.length === i) break;
-    }
-  } catch (err) {
-    _d = true;
-    _e = err;
-  } finally {
-    try {
-      if (!_n && _i["return"] != null) _i["return"]();
-    } finally {
-      if (_d) throw _e;
-    }
-  }
-
-  return _arr;
-}
-
-function _nonIterableRest() {
-  throw new TypeError("Invalid attempt to destructure non-iterable instance");
-}
+var rules = [{
+  name: 'extra',
+  regex: /^.{10,64}$/,
+  score: 1,
+  optional: true
+}, {
+  name: 'length',
+  regex: /^.{8,64}$/,
+  score: 2
+}, {
+  name: 'lowercase',
+  regex: /[a-z]/,
+  score: 4
+}, {
+  name: 'uppercase',
+  regex: /[A-Z]/,
+  score: 8
+}, {
+  name: 'digit',
+  regex: /\d/,
+  score: 16
+}, {
+  name: 'letters',
+  regex: /.*(?=.*[a-z])(?=.*[A-Z]).*/,
+  score: 0
+}];
+var rules_1 = rules;
 
 var WEAK = 'WEAK';
 var MEDIUM = 'MEDIUM';
 var STRONG = 'STRONG';
 var threshold = 30;
-var rules = {
-  extra: {
-    regex: /^.{10,64}$/,
-    score: Math.pow(2, 0),
-    optional: true
-  },
-  length: {
-    regex: /^.{8,64}$/,
-    score: Math.pow(2, 1)
-  },
-  lowercase: {
-    regex: /[a-z]/,
-    score: Math.pow(2, 2)
-  },
-  uppercase: {
-    regex: /[A-Z]/,
-    score: Math.pow(2, 3)
-  },
-  digit: {
-    regex: /\d/,
-    score: Math.pow(2, 4)
-  },
-  letters: {
-    regex: /.*(?=.*[a-z])(?=.*[A-Z]).*/,
-    score: 0
-  }
-};
 
 function getScore() {
   var password = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-  return Object.entries(rules).map(function (_ref) {
-    var _ref2 = _slicedToArray(_ref, 2),
-        key = _ref2[0],
-        rule = _ref2[1];
-
+  return rules_1.map(function (rule) {
     var valid = rule.regex.test(password);
     if (valid) return rule.score;
     return 0;
@@ -94,13 +55,9 @@ function getStrength() {
 function getErrors() {
   var password = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
   var errors = {};
-  Object.entries(rules).forEach(function (_ref3) {
-    var _ref4 = _slicedToArray(_ref3, 2),
-        key = _ref4[0],
-        rule = _ref4[1];
-
+  rules_1.forEach(function (rule) {
     var valid = rule.regex.test(password);
-    if (!valid && !rule.optional) errors[key] = true;
+    if (!valid && !rule.optional) errors[rule.name] = true;
   });
   return errors;
 }
@@ -111,9 +68,19 @@ function isValid() {
   return score >= threshold;
 }
 
-module.exports = {
+var password = {
   getScore: getScore,
   getStrength: getStrength,
   getErrors: getErrors,
   isValid: isValid
 };
+var password_1 = password.getScore;
+var password_2 = password.getStrength;
+var password_3 = password.getErrors;
+var password_4 = password.isValid;
+
+exports.default = password;
+exports.getScore = password_1;
+exports.getStrength = password_2;
+exports.getErrors = password_3;
+exports.isValid = password_4;
