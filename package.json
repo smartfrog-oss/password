@@ -12,7 +12,7 @@
   "private": false,
   "devDependencies": {
     "bili": "3.1.2",
-    "codecov": "3.1.0",
+    "codecov": "3.7.1",
     "jest": "23.6.0"
   },
   "files": [
